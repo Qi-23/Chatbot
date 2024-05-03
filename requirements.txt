@@ -7,5 +7,6 @@ eventregistry
 nltk
 transformers
 torch
+tensorflow
 scipy
 tf-keras
