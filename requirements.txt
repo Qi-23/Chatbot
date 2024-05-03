@@ -8,6 +8,4 @@ nltk
 transformers
 torch
 scipy
-tensorflow 
-sentencepiece
 tf-keras
