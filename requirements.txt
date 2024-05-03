@@ -8,4 +8,4 @@ nltk
 transformers
 torch
 scipy
-sentencepiece
+tensorflow 
