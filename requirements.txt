@@ -8,3 +8,4 @@ nltk
 transformers
 torch
 scipy
+sentencepiece
