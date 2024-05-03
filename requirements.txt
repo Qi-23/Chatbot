@@ -9,5 +9,5 @@ transformers
 torch
 tensorflow
 sentencepiece
-scipy
+scipy==1.8.0
 tf-keras
