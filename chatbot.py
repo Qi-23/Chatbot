@@ -220,29 +220,29 @@ if prompt:= st.chat_input():
     response = chat(prompt)
 
     if response is None:
-            response = generate_flan_t5_response(user_input)
-        elif "<content>" in response:
-            classify(user_input)
-            with st.chat_message("assistant"):
-                temp_message = "Sure! Hold on, retrieving news ..."
-                st.markdown(temp_message)
-            st.session_state.messages.append({"role": "assistant", "content": temp_message})
-            result = retrieve_news()
+        response = generate_flan_t5_response(user_input)
+    elif "<content>" in response:
+        temp_message = f"Echo: Sure! Hold on, retrieving news ..."
+        classify(user_input)
+        with st.chat_message("assistant"):
+            st.markdown(temp_message)
+        st.session_state.messages.append({"role": "assistant", "content": temp_message})
+        result = retrieve_news()
 
-            if result is not None:
-                summarized = summarize(result['body'])
-                content = f"\nTitle : {result['title']}\n\nArticle : {summarized[0]['summary_text']}\n\n -------- \nURL : {result['url']}\n Date : {result['date']}\n"
-                full_content = f"\nTitle : {result['title']}\n\nArticle : {result['body']}\n\n -------- \nURL : {result['url']}\n Date : {result['date']}\n"
-                response = response.replace("<content>", str(content))
-            else:
-                content = None
-                full_content = None
-                response = "Required News is not found."
-        elif "<full_content>" in response:
-            if full_content is not None:
-                response = response.replace("<full_content>", full_content)
-            else:
-                response = "The news is not found."
+        if result is not None:
+            summarized = summarize(result['body'])
+            content = f"\nTitle : {result['title']}\n\nArticle : {summarized[0]['summary_text']}\n\n -------- \nURL : {result['url']}\n Date : {result['date']}\n"
+            full_content = f"\nTitle : {result['title']}\n\nArticle : {result['body']}\n\n -------- \nURL : {result['url']}\n Date : {result['date']}\n"
+            response = response.replace("<content>", str(content))
+        else:
+            content = None
+            full_content = None
+            response = "Required News is not found."
+    elif "<full_content>" in response:
+        if full_content is not None:
+            response = response.replace("<full_content>", full_content)
+        else:
+            response = "The news is not found."
 
     response = f"Echo: {response}"
     with st.chat_message("assistant"):
