@@ -10,3 +10,4 @@ torch
 scipy
 tensorflow 
 sentencepiece
+tf-keras
