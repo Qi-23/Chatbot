@@ -1,29 +1,7 @@
 import streamlit as st
-#!/usr/bin/env python
-# coding: utf-8
 
-# In[1]:
-
-
-# import streamlit as st
-# from streamlit_chat import message
-# from streamlit.components.v1 import html
-
-# def on_input_change():
-#     user_input = st.session_state.user_input
-#     st.session_state.past.append(user_input)
-#     st.session_state.generated.append("The messages from Bot\nWith new line")
-
-# def on_btn_click():
-#     del st.session_state.past[:]
-#     del st.session_state.generated[:]
-
-
-# In[2]:
-
-
-import eventregistry as ER
-from eventregistry import *
+import eventregistry
+from eventregistry.EventRegistry import *
 
 import nltk
 from nltk.tokenize import word_tokenize
