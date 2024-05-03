@@ -28,7 +28,7 @@ T5_model = T5ForConditionalGeneration.from_pretrained("google/flan-t5-base")
 @st.cache_data
 def load_summarizer():
   summarizer = pipeline("summarization", model="facebook/bart-large-cnn")
-return summarizer
+  return summarizer
 summarizer = load_summarizer()
 # classifier = pipeline("zero-shot-classification", model="facebook/bart-large-mnli")
 
