@@ -12,12 +12,24 @@ from transformers import pipeline, BertTokenizer, BertModel, T5Tokenizer, T5ForC
 import torch
 from scipy.spatial.distance import cosine
 
+# @st.cache(allow_output_mutation=True)
+# def load_model(model_name):
+#   nlp = spacy.load(model_name)
+#   return(nlp)
+# nlp = load_model("en_core_web_lg")
+
 BERT_tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
 BERT_model = BertModel.from_pretrained('bert-base-uncased')
                                        
 T5_tokenizer = T5Tokenizer.from_pretrained("google/flan-t5-base", legacy=False)
 T5_model = T5ForConditionalGeneration.from_pretrained("google/flan-t5-base")
-summarizer = pipeline("summarization", model="facebook/bart-large-cnn")
+
+
+@st.cache(allow_output_mutation=True)
+def load_model():
+  summarizer = pipeline("summarization", model="facebook/bart-large-cnn")
+return summarizer
+summarizer = load_summarizer()
 # classifier = pipeline("zero-shot-classification", model="facebook/bart-large-mnli")
 
 # responses = {
