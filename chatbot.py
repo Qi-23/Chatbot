@@ -17,8 +17,8 @@ BERT_model = BertModel.from_pretrained('bert-base-uncased')
                                        
 T5_tokenizer = T5Tokenizer.from_pretrained("google/flan-t5-base", legacy=False)
 T5_model = T5ForConditionalGeneration.from_pretrained("google/flan-t5-base")
-# summarizer = pipeline("summarization", model="facebook/bart-large-cnn")
-# classifier = pipeline("zero-shot-classification", model="facebook/bart-large-mnli")
+summarizer = pipeline("summarization", model="facebook/bart-large-cnn")
+classifier = pipeline("zero-shot-classification", model="facebook/bart-large-mnli")
 
 # responses = {
 #     "Tell me a current news": "This is the latest news > <content>",
