@@ -25,8 +25,8 @@ T5_tokenizer = T5Tokenizer.from_pretrained("google/flan-t5-base", legacy=False)
 T5_model = T5ForConditionalGeneration.from_pretrained("google/flan-t5-base")
 
 
-@st.cache(allow_output_mutation=True)
-def load_model():
+@st.cache_data
+def load_summarizer():
   summarizer = pipeline("summarization", model="facebook/bart-large-cnn")
 return summarizer
 summarizer = load_summarizer()
