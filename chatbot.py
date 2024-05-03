@@ -24,8 +24,7 @@ for message in st.session_state.messages:
         st.markdown(message["content"])
 
 # React to user input
-prompt := st.chat_input()
-if prompt:
+if prompt:= st.chat_input():
     # Display user message in chat message container
     with st.chat_message("user"):
         st.markdown(prompt)
