@@ -5,7 +5,7 @@ pydeck
 streamlit
 eventregistry
 nltk
-transformers==4.11.3
+transformers
 torch
 tensorflow
 sentencepiece
