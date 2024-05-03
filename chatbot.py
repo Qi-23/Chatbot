@@ -12,11 +12,11 @@ from transformers import pipeline, BertTokenizer, BertModel, T5Tokenizer, T5ForC
 import torch
 from scipy.spatial.distance import cosine
 
-# BERT_tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
-# BERT_model = BertModel.from_pretrained('bert-base-uncased')
+BERT_tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
+BERT_model = BertModel.from_pretrained('bert-base-uncased')
                                        
-# T5_tokenizer = T5Tokenizer.from_pretrained("google/flan-t5-base", legacy=False)
-# T5_model = T5ForConditionalGeneration.from_pretrained("google/flan-t5-base")
+T5_tokenizer = T5Tokenizer.from_pretrained("google/flan-t5-base", legacy=False)
+T5_model = T5ForConditionalGeneration.from_pretrained("google/flan-t5-base")
 # summarizer = pipeline("summarization", model="facebook/bart-large-cnn")
 # classifier = pipeline("zero-shot-classification", model="facebook/bart-large-mnli")
 
